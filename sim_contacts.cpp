@@ -20,21 +20,21 @@ namespace sim_contacts
 
       return;
     }
-    bool sim_contacts::modify (std::string value, enum fields para_fields)
-    {
-      switch (para_fields)
-        {
-          case field_name:
-            this->name = value;
-          return true;
-          case field_phone_number:
-            this->phone_number = value;
-          return true;
-          default:
-            return false;
-        }
-
-    }
+//    bool sim_contacts::modify (std::string value, enum fields para_fields)
+//    {
+//      switch (para_fields)
+//        {
+//          case field_name:
+//            this->name = value;
+//          return true;
+//          case field_phone_number:
+//            this->phone_number = value;
+//          return true;
+//          default:
+//            return false;
+//        }
+//
+//    }
 
 
     std::istream &sim_contacts::read (std::istream &is)

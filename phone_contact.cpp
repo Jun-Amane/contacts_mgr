@@ -16,26 +16,26 @@ namespace phone_contact
       this->qq_id = para_qq_id;
     }
 
-    bool phone_contact::modify (std::string value, phone_contact::phone_contact::fields para_fields)
-    {
-      switch (para_fields)
-        {
-          case field_name:
-            this->name = value;
-          return true;
-          case field_phone_number:
-            this->phone_number = value;
-          return true;
-          case field_origin:
-            this->origin = value;
-          return true;
-          case field_qq_id:
-            this->qq_id = value;
-          return true;
-          default:
-            return false;
-        }
-    }
+//    bool phone_contact::modify (std::string value, phone_contact::phone_contact::fields para_fields)
+//    {
+//      switch (para_fields)
+//        {
+//          case field_name:
+//            this->name = value;
+//          return true;
+//          case field_phone_number:
+//            this->phone_number = value;
+//          return true;
+//          case field_origin:
+//            this->origin = value;
+//          return true;
+//          case field_qq_id:
+//            this->qq_id = value;
+//          return true;
+//          default:
+//            return false;
+//        }
+//    }
     std::istream &phone_contact::read (std::istream &is)
     {
       std::getline(is, this->name, ',');

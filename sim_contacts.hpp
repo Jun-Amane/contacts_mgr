@@ -20,17 +20,13 @@ namespace sim_contacts
 
 
 
-      enum fields {
-          field_name,
-          field_phone_number
-      };
       sim_contacts (std::string name = "", std::string phone_number = "");
 
       std::string get_name() const;
       std::string get_phone_number() const;
 
       void set (std::string para_name, std::string para_phone_number);
-      bool modify (std::string value, fields para_fields);
+      //bool modify (std::string value, fields para_fields);
 
       virtual std::istream &read (std::istream &is);
       virtual std::ostream &print (std::ostream &os) const;
