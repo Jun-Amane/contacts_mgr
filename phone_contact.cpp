@@ -38,12 +38,15 @@ namespace phone_contact
     }
     std::istream &phone_contact::read (std::istream &is)
     {
-      is >> this->name >> this->phone_number >> this->origin >> this->qq_id;
+      std::getline(is, this->name, ',');
+      std::getline(is, this->phone_number, ',');
+      std::getline(is, this->origin, ',');
+      std::getline(is, this->qq_id, '\n');
       return is;
     }
     std::ostream &phone_contact::print (std::ostream &os) const
     {
-      os << this->name << " " << this->phone_number << " " << this->origin << " " << this->qq_id;
+      os << this->name << "," << this->phone_number << "," << this->origin << "," << this->qq_id;
       return os;
     }
     std::string phone_contact::get_origin () const

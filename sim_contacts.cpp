@@ -39,12 +39,13 @@ namespace sim_contacts
 
     std::istream &sim_contacts::read (std::istream &is)
     {
-      is >> this->name >> this->phone_number;
+      std::getline(is, this->name, ',');
+      std::getline(is, this->phone_number, '\n');
       return is;
     }
     std::ostream &sim_contacts::print (std::ostream &os) const
     {
-      os << this->name << " " << this->phone_number;
+      os << this->name << "," << this->phone_number;
       return os;
     }
 
