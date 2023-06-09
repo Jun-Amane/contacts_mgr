@@ -7,8 +7,8 @@
 contact_abstract::contact_abstract ()
 {
   size = 0;
-  name_table = new hash_table();
-  phone_table = new hash_table();
+//  name_table = new hash_table();
+//  phone_table = new hash_table();
 }
 
 void contact_abstract::delete_item (std::string phone_number)

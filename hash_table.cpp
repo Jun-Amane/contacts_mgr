@@ -3,6 +3,7 @@
 //
 
 #include "hash_table.hpp"
+#include <vector>
 
 int hash_table::hashFunction (const std::string &key)
 {
@@ -153,6 +154,18 @@ void hash_table::search_name (const std::string &key)
             std::cout << *current->data << std::endl;
         current = current->next;
         }
+}
+std::vector<const sim_contacts::sim_contacts *> hash_table::to_vector () const
+{
+  std::vector <const sim_contacts::sim_contacts*> vec;
+  for (int i = 0; i < TABLE_SIZE; ++i) {
+      Node* current = table[i];
+      while (current != nullptr) {
+          vec.push_back (current->data);
+          current = current->next;
+        }
+    }
+    return vec;
 }
 
 

@@ -14,7 +14,7 @@ class contact_abstract {
  protected:
   hash_table* name_table;
   hash_table* phone_table;
-  u_int16_t size;
+  uint16_t size;
 
  public:
 

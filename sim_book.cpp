@@ -8,6 +8,9 @@ namespace sim_book
 {
     sim_book::sim_book ()
     {
+
+      name_table = file_mgr::read_sim_name_table ("1.txt");
+      phone_table = file_mgr::read_sim_phone_table ("1.txt");
       // TODO: file-reading
 
     }

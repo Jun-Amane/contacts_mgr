@@ -7,6 +7,7 @@
 
 #include "public.hpp"
 #include "sim_contacts.hpp"
+#include <vector>
 
 const int TABLE_SIZE = 100;
 
@@ -42,6 +43,8 @@ class hash_table {
   void display_all();
 
   void modify(const sim_contacts::sim_contacts* item, const std::string &key);
+
+  std::vector<const sim_contacts::sim_contacts *> to_vector() const;
 };
 
 

@@ -9,6 +9,7 @@
 #include "contact_abstract.hpp"
 #include "hash_table.hpp"
 #include "phone_contact.hpp"
+#include "file_mgr.hpp"
 
 namespace phone_book
 {
@@ -18,6 +19,7 @@ namespace phone_book
      public:
 
       phone_book();
+//      ~phone_book(); // TODO: 析构函数，文件写入
 
       void insert_item(std::string name, std::string phone_number, std::string origin, std::string qq_id) override;
       void insert_item(std::string name, std::string phone_number) override;
