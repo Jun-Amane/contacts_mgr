@@ -7,7 +7,7 @@
 namespace file_mgr
 {
 
-    hash_table *read_sim_name_table (std::string file_name)
+    hash_table *read_sim_name_table (const std::string& file_name)
     {
       auto *name_table = new hash_table ();
       std::ifstream file (file_name);
@@ -17,7 +17,7 @@ namespace file_mgr
           sim_contacts::sim_contacts contact;
           while (file >> contact)
             {
-              sim_contacts::sim_contacts *item = new sim_contacts::sim_contacts (contact);
+              auto *item = new sim_contacts::sim_contacts (contact);
               name_table->insert (item, item->get_name ());
             }
           file.close ();
@@ -31,7 +31,7 @@ namespace file_mgr
       return name_table;
     }
 
-    hash_table *read_sim_phone_table (std::string file_name)
+    hash_table *read_sim_phone_table (const std::string& file_name)
     {
       auto *phone_table = new hash_table ();
       std::ifstream file (file_name);
@@ -41,7 +41,7 @@ namespace file_mgr
           sim_contacts::sim_contacts contact;
           while (file >> contact)
             {
-              sim_contacts::sim_contacts *item = new sim_contacts::sim_contacts (contact);
+              auto *item = new sim_contacts::sim_contacts (contact);
               phone_table->insert (item, item->get_phone_number ());
             }
           file.close ();
@@ -55,7 +55,7 @@ namespace file_mgr
       return phone_table;
     }
 
-    hash_table *read_phone_name_table (std::string file_name)
+    hash_table *read_phone_name_table (const std::string& file_name)
     {
       auto *name_table = new hash_table ();
       std::ifstream file (file_name);
@@ -65,7 +65,7 @@ namespace file_mgr
           phone_contact::phone_contact contact;
           while (file >> contact)
             {
-              phone_contact::phone_contact *item = new phone_contact::phone_contact (contact);
+              auto *item = new phone_contact::phone_contact (contact);
               name_table->insert (item, item->get_name ());
             }
           file.close ();
@@ -78,7 +78,7 @@ namespace file_mgr
 
       return name_table;
     }
-    hash_table *read_phone_phone_table (std::string file_name)
+    hash_table *read_phone_phone_table (const std::string& file_name)
     {
       auto *phone_table = new hash_table ();
       std::ifstream file (file_name);
@@ -88,7 +88,7 @@ namespace file_mgr
           phone_contact::phone_contact contact;
           while (file >> contact)
             {
-              phone_contact::phone_contact *item = new phone_contact::phone_contact (contact);
+              auto *item = new phone_contact::phone_contact (contact);
               phone_table->insert (item, item->get_phone_number ());
             }
           file.close ();
@@ -102,7 +102,7 @@ namespace file_mgr
       return phone_table;
     }
 
-    bool write_sim_book (std::string file_name, hash_table *name_table)
+    bool write_sim_book (const std::string& file_name, hash_table *name_table)
     {
       std::ofstream file (file_name);
       if (file.is_open ())

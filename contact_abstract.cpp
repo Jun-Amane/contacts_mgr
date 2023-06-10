@@ -26,6 +26,18 @@ void contact_abstract::display ()
 }
 void contact_abstract::query (const std::string& name)
 {
-  name_table->search_name (name);
+  std::cout << *name_table->query_name (name) << std::endl;
+}
+std::string contact_abstract::get_phone (const std::string& name) const
+{
+  return name_table->query_name (name)->get_phone_number();
+}
+bool contact_abstract::search_phone (const std::string& key)
+{
+  return phone_table->search_phone (key);
+}
+bool contact_abstract::search_name (const std::string& key)
+{
+  return name_table->search_name (key);
 }
 

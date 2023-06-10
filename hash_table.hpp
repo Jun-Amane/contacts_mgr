@@ -34,8 +34,10 @@ class hash_table {
 
   std::string get_name_by_phone(const std::string &key);
 
-  bool search_phone(const std::string &key);
-  void search_name(const std::string &key);
+  bool search_phone(const std::string &key); // if exist
+  bool search_name(const std::string &key); // if exist
+
+  const sim_contacts::sim_contacts* query_name(const std::string &key);
 
   void remove(const std::string &key);
   void remove_by_name(const std::string &key);

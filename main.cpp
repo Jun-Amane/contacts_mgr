@@ -4,6 +4,7 @@
 #include "sim_book.hpp"
 
 #include "file_mgr.hpp"
+#include "user.hpp"
 
 int main() {
 
@@ -14,7 +15,7 @@ int main() {
   book->delete_item ("789");
 
   book->query ("alpha");
-
+  std::cout << "******************************************\n";
   book->display();
 
   auto* phone = new phone_book::phone_book();
@@ -23,6 +24,7 @@ int main() {
   phone->query ("alpha");
   std::cout << "******************************************\n";
   phone->display();
+
 
 
 

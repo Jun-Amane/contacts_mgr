@@ -21,8 +21,8 @@ namespace phone_book
       phone_book();
 //      ~phone_book(); // TODO: 析构函数，文件写入
 
-      void insert_item(std::string name, std::string phone_number, std::string origin, std::string qq_id) override;
-      void insert_item(std::string name, std::string phone_number) override;
+      bool insert_item(std::string name, std::string phone_number, std::string origin, std::string qq_id) override;
+      bool insert_item(std::string name, std::string phone_number) override;
       void modify_item(std::string name, std::string phone_number, std::string origin, std::string qq_id) override;
       void modify_item(std::string name, std::string phone_number) override;
 

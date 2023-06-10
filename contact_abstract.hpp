@@ -14,19 +14,24 @@ class contact_abstract {
  protected:
   hash_table* name_table;
   hash_table* phone_table;
-  uint16_t size;
+  uint size;
 
  public:
 
   contact_abstract();
 
-  virtual void insert_item(std::string name, std::string phone_number, std::string origin, std::string qq_id) = 0;
-  virtual void insert_item(std::string name, std::string phone_number) = 0;
+  virtual bool insert_item(std::string name, std::string phone_number, std::string origin, std::string qq_id) = 0;
+  virtual bool insert_item(std::string name, std::string phone_number) = 0;
   void delete_item(std::string phone_number);
   void display();
   virtual void modify_item(std::string name, std::string phone_number, std::string origin, std::string qq_id) = 0;
   virtual void modify_item(std::string name, std::string phone_number) = 0;
   void query(const std::string& name);
+
+  bool search_phone(const std::string &key); // if exist
+  bool search_name(const std::string &key); // if exist
+
+  std::string get_phone(const std::string& name) const;
 
 };
 

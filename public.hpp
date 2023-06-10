@@ -8,5 +8,6 @@
 
 #include <iostream>
 #include <string>
+#include <cstdint>
 
 #endif //_PUBLIC_HPP_
