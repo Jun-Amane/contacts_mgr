@@ -9,8 +9,8 @@ namespace sim_book
     sim_book::sim_book ()
     {
 
-      name_table = file_mgr::read_sim_name_table ("1.txt");
-      phone_table = file_mgr::read_sim_phone_table ("1.txt");
+      name_table = file_mgr::read_sim_name_table ("sim.txt");
+      phone_table = file_mgr::read_sim_phone_table ("sim.txt");
       // TODO: file-reading
 
     }
@@ -39,6 +39,16 @@ namespace sim_book
     {
       // Not Implemented.
     }
+    sim_book::~sim_book ()
+    {
+      this->save();
+      std::cout << "[DEBUG] sim_book destructor called" << std::endl;
+    }
+    void sim_book::save ()
+    {
 
+      this->write_to_file ("sim.txt");
+
+    }
 
 } // sim_book

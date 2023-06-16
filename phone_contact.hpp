@@ -37,6 +37,7 @@ namespace phone_contact
 
       std::istream &read (std::istream &is) override;
       std::ostream &print (std::ostream &os) const override;
+      std::ostream &readable_print (std::ostream &os) const override;
 
 
     };

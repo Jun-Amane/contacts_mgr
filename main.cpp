@@ -1,33 +1,37 @@
 #include "public.hpp"
 
-#include "phone_book.hpp"
-#include "sim_book.hpp"
-
-#include "file_mgr.hpp"
+#include "ui.hpp"
 #include "user.hpp"
+#include <stdlib.h>
 
 int main() {
 
+//
+//  auto* book = new sim_book::sim_book();
+//
+//  book->modify_item ("alpha", "abcdefg");
+//  book->delete_item ("789");
+//
+//  book->query ("alpha");
+//  std::cout << "******************************************\n";
+//  book->display();
+//  delete book;
+//  std::cout << "******************************************\n";
+//
+//  auto* phone = new phone_book::phone_book();
+//  phone->modify_item ("alpha", "abcdefg","nn", "xx");
+//  phone->delete_item ("789");
+//  phone->query ("alpha");
+//  std::cout << "******************************************\n";
+//  phone->display();
+//  delete phone;
 
-  auto* book = new sim_book::sim_book();
+  system("CHCP 65001");
 
-  book->modify_item ("alpha", "abcdefg");
-  book->delete_item ("789");
+  auto* main_user = new user::user();
+  auto* main_ui = new ui::ui();
 
-  book->query ("alpha");
-  std::cout << "******************************************\n";
-  book->display();
-
-  auto* phone = new phone_book::phone_book();
-  phone->modify_item ("alpha", "abcdefg","nn", "xx");
-  phone->delete_item ("789");
-  phone->query ("alpha");
-  std::cout << "******************************************\n";
-  phone->display();
-
-
-
-
+  while(!main_ui->display(main_user));
 
 
   return 0;

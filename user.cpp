@@ -270,4 +270,9 @@ namespace user
         std::cout << "错误" << std::endl;
 
     }
+    void user::save ()
+    {
+      sim_book_ptr->save ();
+      phone_book_ptr->save();
+    }
 } // user

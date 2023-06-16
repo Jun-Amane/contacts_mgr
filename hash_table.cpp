@@ -180,6 +180,7 @@ const sim_contacts::sim_contacts* hash_table::query_name (const std::string& key
         return current->data;
       current = current->next;
     }
+    return nullptr;
 }
 std::vector<const sim_contacts::sim_contacts *> hash_table::to_vector () const
 {

@@ -49,6 +49,13 @@ namespace phone_contact
       os << this->name << "," << this->phone_number << "," << this->origin << "," << this->qq_id;
       return os;
     }
+
+    std::ostream &phone_contact::readable_print (std::ostream &os) const
+    {
+      os << "name: " << this->name << ", phone_number: " << this->phone_number << ", origin: " << this->origin << ", qq_id:" << this->qq_id;
+      return os;
+    }
+
     std::string phone_contact::get_origin () const
     {
       return this->origin;

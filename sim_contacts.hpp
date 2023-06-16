@@ -30,6 +30,7 @@ namespace sim_contacts
 
       virtual std::istream &read (std::istream &is);
       virtual std::ostream &print (std::ostream &os) const;
+      virtual std::ostream &readable_print (std::ostream &os) const;
 
       friend std::ostream &operator<< (std::ostream &os, const sim_contacts &obj);
       friend std::istream &operator>> (std::istream &is, sim_contacts &obj);
