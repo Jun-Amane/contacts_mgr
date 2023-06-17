@@ -147,7 +147,8 @@ void hash_table::display_all ()
       Node *current = table[i];
       while (current != nullptr)
         {
-          std::cout << *current->data << std::endl;
+          current->data->readable_print (std::cout);
+          std::cout << std::endl;
           current = current->next;
         }
     }

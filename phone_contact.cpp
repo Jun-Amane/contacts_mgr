@@ -52,7 +52,7 @@ namespace phone_contact
 
     std::ostream &phone_contact::readable_print (std::ostream &os) const
     {
-      os << "name: " << this->name << ", phone_number: " << this->phone_number << ", origin: " << this->origin << ", qq_id:" << this->qq_id;
+      os << std::left << std::setw(18) << this->name << std::left << std::setw(18) << this->phone_number << std::left << std::setw(18) << this->origin << std::left << std::setw(18) << this->qq_id;
       return os;
     }
 

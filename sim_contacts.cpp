@@ -68,7 +68,7 @@ namespace sim_contacts
     }
     std::ostream &sim_contacts::readable_print (std::ostream &os) const
     {
-      os << "name: " << this->name << ", phone_number" << this->phone_number;
+      os << std::left << std::setw(18) << this->name << std::left << std::setw(18) << this->phone_number;
       return os;
     }
 
