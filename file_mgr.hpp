@@ -11,13 +11,14 @@
 #include "hash_table.hpp"
 #include "phone_contact.hpp"
 
-namespace file_mgr {
+namespace file_mgr
+{
 
-    hash_table * read_sim_name_table(const std::string& file_name);
-    hash_table * read_sim_phone_table(const std::string& file_name);
-    hash_table * read_phone_name_table(const std::string& file_name);
-    hash_table * read_phone_phone_table(const std::string& file_name);
-    bool write_sim_book(const std::string& file_name, hash_table * name_table); // 一者二用
+    hash_table *read_sim_name_table (const std::string &file_name);
+    hash_table *read_sim_phone_table (const std::string &file_name);
+    hash_table *read_phone_name_table (const std::string &file_name);
+    hash_table *read_phone_phone_table (const std::string &file_name);
+    bool write_sim_book (const std::string &file_name, hash_table *name_table); // 一者二用
 
 }
 

@@ -61,10 +61,10 @@ namespace user
           break;
         }
 
-      if(!flag)
+      if (!flag)
         std::cout << "错误" << std::endl;
 
-      std::cin.sync();
+      std::cin.clear ();
       std::cin.ignore (1024, '\n');
 
     }
@@ -78,7 +78,7 @@ namespace user
       phone_book_ptr->delete_item (phone_number);
       sim_book_ptr->delete_item (phone_number);
 
-      std::cin.sync();
+      std::cin.clear ();
       std::cin.ignore (1024, '\n');
 
     }
@@ -122,7 +122,7 @@ namespace user
           break;
         }
 
-      std::cin.sync();
+      std::cin.clear ();
       std::cin.ignore (1024, '\n');
 
     }
@@ -143,6 +143,9 @@ namespace user
               case 0:
                 std::cout << "input name: ";
               std::cin >> name;
+              std::cout << "\033[47;30m" << std::left << std::setw (18) << "Name" << std::left << std::setw (18)
+                        << "Phone Number" << std::left << std::setw (18) << "Origin" << std::left << std::setw (18)
+                        << "QQ ID" << "\033[0m\n";
               sim_book_ptr->query (name);
               phone_book_ptr->query (name);
               break;
@@ -150,6 +153,8 @@ namespace user
               case 1:
                 std::cout << "input name: ";
               std::cin >> name;
+              std::cout << "\033[47;30m" << std::left << std::setw (18) << "Name" << std::left << std::setw (18)
+                        << "Phone Number" << "\033[0m\n";
               sim_book_ptr->query (name);
               break;
 
@@ -157,6 +162,9 @@ namespace user
 
                 std::cout << "input name: ";
               std::cin >> name;
+              std::cout << "\033[47;30m" << std::left << std::setw (18) << "Name" << std::left << std::setw (18)
+                        << "Phone Number" << std::left << std::setw (18) << "Origin" << std::left << std::setw (18)
+                        << "QQ ID" << "\033[0m\n";
               phone_book_ptr->query (name);
               break;
 
@@ -167,7 +175,7 @@ namespace user
           break;
         }
 
-      std::cin.sync();
+      std::cin.clear ();
       std::cin.ignore (1024, '\n');
 
     }
@@ -185,19 +193,24 @@ namespace user
           switch (media_type)
             {
               case 0:
-                std::cout << "\033[47;30m" << std::left << std::setw(18) << "Name" << std::left << std::setw(18) << "Phone Number" << std::left << std::setw(18) << "Origin" << std::left << std::setw(18) << "QQ ID" << "\033[0m\n";
-                sim_book_ptr->display ();
+                std::cout << "\033[47;30m" << std::left << std::setw (18) << "Name" << std::left << std::setw (18)
+                          << "Phone Number" << std::left << std::setw (18) << "Origin" << std::left << std::setw (18)
+                          << "QQ ID" << "\033[0m\n";
+              sim_book_ptr->display ();
               phone_book_ptr->display ();
               break;
 
               case 1:
-                std::cout << "\033[47;30m" << std::left << std::setw(18) << "Name" << std::left << std::setw(18) << "Phone Number" << "\033[0m\n";
-                sim_book_ptr->display ();
+                std::cout << "\033[47;30m" << std::left << std::setw (18) << "Name" << std::left << std::setw (18)
+                          << "Phone Number" << "\033[0m\n";
+              sim_book_ptr->display ();
               break;
 
               case 2:
-                std::cout << "\033[47;30m" << std::left << std::setw(18) << "Name" << std::left << std::setw(18) << "Phone Number" << std::left << std::setw(18) << "Origin" << std::left << std::setw(18) << "QQ ID" << "\033[0m\n";
-                phone_book_ptr->display ();
+                std::cout << "\033[47;30m" << std::left << std::setw (18) << "Name" << std::left << std::setw (18)
+                          << "Phone Number" << std::left << std::setw (18) << "Origin" << std::left << std::setw (18)
+                          << "QQ ID" << "\033[0m\n";
+              phone_book_ptr->display ();
               break;
 
               default:
@@ -207,11 +220,7 @@ namespace user
           break;
         }
 
-      std::cin.sync();
-      std::cin.ignore (1024, '\n');
-
     }
-
 
     void user::copy2sim ()
     {
@@ -220,17 +229,25 @@ namespace user
       std::cout << "键入名字：";
       std::cin >> name;
 
-      if(sim_book_ptr->search_name (name))
+      if (sim_book_ptr->search_name (name))
         {
           std::cout << "已存在" << std::endl;
           return;
         }
 
-      flag = sim_book_ptr->insert_item (name, phone_book_ptr->get_phone (name));
-      if(!flag)
+      try
+        {
+          flag = sim_book_ptr->insert_item (name, phone_book_ptr->get_phone (name));
+        }
+      catch (const char *msg)
+        {
+          std::cout << msg << std::endl;
+        }
+
+      if (!flag)
         std::cout << "错误" << std::endl;
 
-      std::cin.sync();
+      std::cin.clear ();
       std::cin.ignore (1024, '\n');
 
     }
@@ -241,19 +258,26 @@ namespace user
       std::cout << "键入名字：";
       std::cin >> name;
 
-      if(phone_book_ptr->search_name (name))
+      if (phone_book_ptr->search_name (name))
         {
           std::cout << "已存在" << std::endl;
           return;
         }
 
-      flag = phone_book_ptr->insert_item (name, sim_book_ptr->get_phone (name), "", "");
-      if(!flag)
+      try
+        {
+          flag = phone_book_ptr->insert_item (name, sim_book_ptr->get_phone (name), "", "");
+        }
+      catch (const char *msg)
+        {
+          std::cout << msg << std::endl;
+        }
+
+      if (!flag)
         std::cout << "错误" << std::endl;
 
-      std::cin.sync();
+      std::cin.clear ();
       std::cin.ignore (1024, '\n');
-
     }
     void user::move2sim ()
     {
@@ -262,19 +286,27 @@ namespace user
       std::cout << "键入名字：";
       std::cin >> name;
 
-      if(sim_book_ptr->search_name (name))
+      if (sim_book_ptr->search_name (name))
         {
           std::cout << "已存在" << std::endl;
           return;
         }
 
-      flag = sim_book_ptr->insert_item (name, phone_book_ptr->get_phone (name));
+      try
+        {
+          flag = sim_book_ptr->insert_item (name, phone_book_ptr->get_phone (name));
+        }
+      catch (const char *msg)
+        {
+          std::cout << msg << std::endl;
+          flag = false;
+        }
       if (flag)
         phone_book_ptr->delete_item (phone_book_ptr->get_phone (name));
       else
         std::cout << "错误" << std::endl;
 
-      std::cin.sync();
+      std::cin.clear ();
       std::cin.ignore (1024, '\n');
     }
     void user::move2phone ()
@@ -284,25 +316,32 @@ namespace user
       std::cout << "键入名字：";
       std::cin >> name;
 
-      if(phone_book_ptr->search_name (name))
+      if (phone_book_ptr->search_name (name))
         {
           std::cout << "已存在" << std::endl;
           return;
         }
 
-      flag = phone_book_ptr->insert_item (name, sim_book_ptr->get_phone (name));
+      try
+        {
+          flag = phone_book_ptr->insert_item (name, sim_book_ptr->get_phone (name), "", "");
+        }
+      catch (const char *msg)
+        {
+          std::cout << msg << std::endl;
+          flag = false;
+        }
       if (flag)
         sim_book_ptr->delete_item (sim_book_ptr->get_phone (name));
       else
         std::cout << "错误" << std::endl;
-
-      std::cin.sync();
+      std::cin.clear ();
       std::cin.ignore (1024, '\n');
 
     }
     void user::save ()
     {
       sim_book_ptr->save ();
-      phone_book_ptr->save();
+      phone_book_ptr->save ();
     }
 } // user

@@ -16,34 +16,32 @@ namespace user
 
      protected:
 
-        phone_book::phone_book * phone_book_ptr;
-        sim_book::sim_book * sim_book_ptr;
+      phone_book::phone_book *phone_book_ptr;
+      sim_book::sim_book *sim_book_ptr;
 
      public:
 
-        user();
-        ~user();
+      user ();
+      ~user ();
 
-        enum media {
-            sim,
-            phone
-        };
+      enum media {
+          sim,
+          phone
+      };
 
-        void add_contact();
-        void delete_contact();
-        void modify_contact();
-        void search_contact();
+      void add_contact ();
+      void delete_contact ();
+      void modify_contact ();
+      void search_contact ();
 
-        void display_contact();
+      void display_contact ();
 
-        void copy2sim();    // 根据名字，重名则复制表内第一个。
-        void copy2phone();
-        void move2sim();
-        void move2phone();
+      void copy2sim ();    // 根据名字，重名则复制表内第一个。
+      void copy2phone ();
+      void move2sim ();
+      void move2phone ();
 
-
-        void save();
-
+      void save ();
 
     };
 

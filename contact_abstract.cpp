@@ -11,45 +11,52 @@ contact_abstract::contact_abstract ()
   phone_table = nullptr;
 }
 
-void contact_abstract::delete_item (const std::string& phone_number)
+void contact_abstract::delete_item (const std::string &phone_number)
 {
-  while(phone_table->search_phone(phone_number)){
-      std::string name = phone_table->get_name_by_phone(phone_number);
-      phone_table->remove(phone_number);
-      name_table->remove_by_name(name);
+  while (phone_table->search_phone (phone_number))
+    {
+      std::string name = phone_table->get_name_by_phone (phone_number);
+      phone_table->remove (phone_number);
+      name_table->remove_by_name (name);
       std::cout << "removed : " << name << std::endl; //TODO: this is DEBUG, remove this line.
     }
 }
 void contact_abstract::display ()
 {
-  name_table->display_all();
+  name_table->display_all ();
 }
-void contact_abstract::query (const std::string& name)
+void contact_abstract::query (const std::string &name)
 {
-  auto* ptr = name_table->query_name (name);
-  if(ptr == nullptr){
+  auto *ptr = name_table->query_name (name);
+  if (ptr == nullptr)
+    {
       std::cout << "not found" << std::endl;
-    }else{
+    }
+  else
+    {
       ptr->readable_print (std::cout);
       std::cout << std::endl;
     }
 }
-std::string contact_abstract::get_phone (const std::string& name) const
+std::string contact_abstract::get_phone (const std::string &name) const
 {
-  auto* ptr = name_table->query_name (name);
-  if(ptr == nullptr){
+  auto *ptr = name_table->query_name (name);
+  if (ptr == nullptr)
+    {
       std::cout << "not found" << std::endl;
-      return "";
-    }else{
-      return ptr->get_phone_number();
+      throw "contact_abstract::get_phone: not found";
+    }
+  else
+    {
+      return ptr->get_phone_number ();
     }
 
 }
-bool contact_abstract::search_phone (const std::string& key)
+bool contact_abstract::search_phone (const std::string &key)
 {
   return phone_table->search_phone (key);
 }
-bool contact_abstract::search_name (const std::string& key)
+bool contact_abstract::search_name (const std::string &key)
 {
   return name_table->search_name (key);
 }

@@ -39,8 +39,8 @@ namespace sim_contacts
 
     std::istream &sim_contacts::read (std::istream &is)
     {
-      std::getline(is, this->name, ',');
-      std::getline(is, this->phone_number, '\n');
+      std::getline (is, this->name, ',');
+      std::getline (is, this->phone_number, '\n');
       return is;
     }
     std::ostream &sim_contacts::print (std::ostream &os) const
@@ -48,7 +48,6 @@ namespace sim_contacts
       os << this->name << "," << this->phone_number;
       return os;
     }
-
 
     std::ostream &operator<< (std::ostream &os, const sim_contacts &obj)
     {
@@ -68,7 +67,7 @@ namespace sim_contacts
     }
     std::ostream &sim_contacts::readable_print (std::ostream &os) const
     {
-      os << std::left << std::setw(18) << this->name << std::left << std::setw(18) << this->phone_number;
+      os << std::left << std::setw (18) << this->name << std::left << std::setw (18) << this->phone_number;
       return os;
     }
 

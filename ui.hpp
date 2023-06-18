@@ -15,11 +15,11 @@ namespace ui
 
      public:
 
-      bool display(user::user* user_ptr); // 返回值：true为退出主程式，false为继续。
-      void submenu_copy(user::user* user_ptr);
-      void submenu_move(user::user* user_ptr);
+      bool display (user::user *user_ptr); // 返回值：true为退出主程式，false为继续。
+      void submenu_copy (user::user *user_ptr);
+      void submenu_move (user::user *user_ptr);
 
-      void pause();
+      void pause ();
 
     };
 

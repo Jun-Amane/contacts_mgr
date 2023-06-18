@@ -5,7 +5,7 @@
 #include "hash_table.hpp"
 #include <vector>
 
-int hash_table::hashFunction (const std::string& key)
+int hash_table::hashFunction (const std::string &key)
 {
 
   std::hash<std::string> hasher;
@@ -36,7 +36,7 @@ hash_table::~hash_table ()
     }
   delete[] table;
 }
-void hash_table::insert (const sim_contacts::sim_contacts *item, const std::string& key)
+void hash_table::insert (const sim_contacts::sim_contacts *item, const std::string &key)
 {
   int index = hashFunction (key);
   Node *newNode = new Node (item);
@@ -56,7 +56,7 @@ void hash_table::insert (const sim_contacts::sim_contacts *item, const std::stri
     }
 
 }
-bool hash_table::search_phone (const std::string& key)
+bool hash_table::search_phone (const std::string &key)
 {
   int index = hashFunction (key);
   Node *current = table[index];
@@ -72,7 +72,7 @@ bool hash_table::search_phone (const std::string& key)
   return false; // 未找到
 
 }
-void hash_table::remove (const std::string& key) // phone number oried.
+void hash_table::remove (const std::string &key) // phone number oried.
 {
   int index = hashFunction (key);
   Node *current = table[index];
@@ -98,7 +98,7 @@ void hash_table::remove (const std::string& key) // phone number oried.
     }
 
 }
-void hash_table::remove_by_name (const std::string& key)
+void hash_table::remove_by_name (const std::string &key)
 {
   int index = hashFunction (key);
   Node *current = table[index];
@@ -124,7 +124,7 @@ void hash_table::remove_by_name (const std::string& key)
     }
 
 }
-std::string hash_table::get_name_by_phone (const std::string& key)
+std::string hash_table::get_name_by_phone (const std::string &key)
 {
   int index = hashFunction (key);
   Node *current = table[index];
@@ -154,7 +154,7 @@ void hash_table::display_all ()
     }
 
 }
-void hash_table::modify (const sim_contacts::sim_contacts *item, const std::string& key)
+void hash_table::modify (const sim_contacts::sim_contacts *item, const std::string &key)
 {
   int index = hashFunction (key);
   Node *current = table[index];
@@ -170,7 +170,7 @@ void hash_table::modify (const sim_contacts::sim_contacts *item, const std::stri
       current = current->next;
     }
 }
-const sim_contacts::sim_contacts* hash_table::query_name (const std::string& key)
+const sim_contacts::sim_contacts *hash_table::query_name (const std::string &key)
 {
   int index = hashFunction (key);
   Node *current = table[index];
@@ -181,7 +181,7 @@ const sim_contacts::sim_contacts* hash_table::query_name (const std::string& key
         return current->data;
       current = current->next;
     }
-    return nullptr;
+  return nullptr;
 }
 std::vector<const sim_contacts::sim_contacts *> hash_table::to_vector () const
 {
@@ -197,7 +197,7 @@ std::vector<const sim_contacts::sim_contacts *> hash_table::to_vector () const
     }
   return vec;
 }
-bool hash_table::search_name (const std::string& key)
+bool hash_table::search_name (const std::string &key)
 {
   int index = hashFunction (key);
   Node *current = table[index];
