@@ -26,7 +26,7 @@ int main() {
 //  phone->display();
 //  delete phone;
 
-//  system("CHCP 65001"); // For Windows.
+  system("CHCP 65001"); // For Windows.
 
   auto* main_user = new user::user();
   auto* main_ui = new ui::ui();

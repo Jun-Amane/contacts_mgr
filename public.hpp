@@ -9,8 +9,8 @@
 #include <iostream>
 #include <string>
 #include <cstdint>
-#include <termios.h>
-#include <unistd.h>
+//#include <termios.h>
+//#include <unistd.h>
 #include <iomanip>
 
 #endif //_PUBLIC_HPP_
