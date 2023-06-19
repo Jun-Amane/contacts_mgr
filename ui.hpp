@@ -50,7 +50,7 @@ namespace ui
        * @return 无。
        * @note 为兼容Unix，故不使用system("pause")。
        */
-      void pause ();
+      static void pause ();
 
     };
 
