@@ -35,7 +35,7 @@ class Node {
 
 /*
  * @brief 哈希表类。
- * @details 使用标准库中的std::hash函数，计算std::string的哈希值并缩放到合适范围内。
+ * @details 使用标准库中的std::hash对象，计算std::string的哈希值并缩放到合适范围内。
  */
 class hash_table {
  private:

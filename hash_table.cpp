@@ -11,7 +11,7 @@
 int hash_table::hashFunction (const std::string &key)
 {
 
-  std::hash<std::string> hasher;  // std::hash是标准库中的哈希函数。
+  std::hash<std::string> hasher;  // std::hash是标准库中的哈希对象。
   std::size_t hashValue = hasher (key); // 计算哈希值。
   return hashValue % TABLE_SIZE;  // 缩放到合适范围内。
 
