@@ -1,3 +1,7 @@
+/*
+ * 主函数所在文件
+ */
+
 #include "public.hpp"
 
 #include "ui.hpp"

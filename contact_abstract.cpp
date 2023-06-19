@@ -1,6 +1,10 @@
-//
-// Created by Jun ASAKA on 09/06/23.
-//
+/*
+ * contact_abstract.cpp
+ * Created by Jun ASAKA on 09/06/23.
+ *
+ * 用途：用于实现电话簿的抽象类源文件。
+ *
+ */
 
 #include "contact_abstract.hpp"
 
@@ -13,38 +17,43 @@ contact_abstract::contact_abstract ()
 
 void contact_abstract::delete_item (const std::string &phone_number)
 {
-  while (phone_table->search_phone (phone_number))
+  while (phone_table->search_phone (phone_number)) // 循环删除所有条目。
     {
-      std::string name = phone_table->get_name_by_phone (phone_number);
+      std::string name = phone_table->get_name_by_phone (phone_number); // 从phone_table中找到名字。
       phone_table->remove (phone_number);
       name_table->remove_by_name (name);
-      std::cout << "removed : " << name << std::endl; //TODO: this is DEBUG, remove this line.
+      std::cout << "[DEBUG] removed : " << name << std::endl;
     }
 }
+
 void contact_abstract::display ()
 {
   name_table->display_all ();
 }
-void contact_abstract::query (const std::string &name)
+
+bool contact_abstract::query (const std::string &name)
 {
   auto *ptr = name_table->query_name (name);
   if (ptr == nullptr)
     {
-      std::cout << "not found" << std::endl;
+      // std::cout << "not found" << std::endl;
+      return false;
     }
   else
     {
-      ptr->readable_print (std::cout);
+      ptr->readable_print (std::cout); // 格式化输出到stdcout。
       std::cout << std::endl;
+      return true;
     }
 }
+
 std::string contact_abstract::get_phone (const std::string &name) const
 {
   auto *ptr = name_table->query_name (name);
   if (ptr == nullptr)
     {
-      std::cout << "not found" << std::endl;
-      throw "contact_abstract::get_phone: not found";
+      std::cout << "\033[41;37mnot found\033[0m\n" << std::endl;
+      throw "contact_abstract::get_phone: not found"; // 抛出异常，在调用处接收。
     }
   else
     {
@@ -52,14 +61,17 @@ std::string contact_abstract::get_phone (const std::string &name) const
     }
 
 }
+
 bool contact_abstract::search_phone (const std::string &key)
 {
   return phone_table->search_phone (key);
 }
+
 bool contact_abstract::search_name (const std::string &key)
 {
   return name_table->search_name (key);
 }
+
 void contact_abstract::write_to_file (const std::string &file_name)
 {
   file_mgr::write_sim_book (file_name, this->name_table);
