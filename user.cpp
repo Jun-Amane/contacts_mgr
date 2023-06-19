@@ -246,6 +246,8 @@ namespace user
       if (sim_book_ptr->search_name (name))
         {
           std::cout << "\033[41;37m已存在\033[0m\n" << std::endl;
+          std::cin.clear ();
+          std::cin.ignore (1024, '\n'); // 清空std::cin缓冲区（里面有一个换行符），防止对pause函数造成干扰。
           return;
         }
 
@@ -275,6 +277,8 @@ namespace user
       if (phone_book_ptr->search_name (name))
         {
           std::cout << "\033[41;37m已存在\033[0m\n" << std::endl;
+          std::cin.clear ();
+          std::cin.ignore (1024, '\n'); // 清空std::cin缓冲区（里面有一个换行符），防止对pause函数造成干扰。
           return;
         }
 
@@ -303,6 +307,8 @@ namespace user
       if (sim_book_ptr->search_name (name))
         {
           std::cout << "\033[41;37m已存在\033[0m\n" << std::endl;
+          std::cin.clear ();
+          std::cin.ignore (1024, '\n'); // 清空std::cin缓冲区（里面有一个换行符），防止对pause函数造成干扰。
           return;
         }
 
@@ -334,6 +340,8 @@ namespace user
       if (phone_book_ptr->search_name (name))
         {
           std::cout << "\033[41;37m已存在\033[0m\n" << std::endl;
+          std::cin.clear ();
+          std::cin.ignore (1024, '\n'); // 清空std::cin缓冲区（里面有一个换行符），防止对pause函数造成干扰。
           return;
         }
 
